@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screen-o-matic</title>
+
+<style>
+:root {
+    --bg-dark: #111827;
+    --card-bg: #ffffff;
+    --accent: #2563eb;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --result-bg: #eef2ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, #111827, #1f2937);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 720px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    padding: 30px;
+}
+
+h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.divider {
+    height: 1px;
+    background: var(--border);
+    margin: 20px 0 30px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #111;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.radio-option:hover {
+    border-color: var(--accent);
+    background-color: #f9fafb;
+}
+
+.radio-option input[type="radio"] {
+    accent-color: var(--accent);
+    transform: scale(1.1);
+}
+
+.results-label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 160px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 15px;
+    font-family: monospace;
+    font-size: 15px;
+    background-color: var(--result-bg);
+    resize: vertical;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Desktop layout enhancement */
+@media (min-width: 640px) {
+    .radio-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .radio-option {
+        flex: 1 1 30%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Screen-o-matic</h1>
+    <div class="divider"></div>
+
+    <form>
+
+        <div class="section">
+            <h2>What type of garment are you printing on?</h2>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="garment" value="tshirt">
+                    T-Shirt
+                </label>
+
+                <label class="radio-option">
+                    <input type="radio" name="garment" value="sweatshirt">
+                    Sweatshirt
+                </label>
+
+                <label class="radio-option">
+                    <input type="radio" name="garment" value="hoodie">
+                    Hoodie
+                </label>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Is the print on light or dark material?</h2>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="material" value="light">
+                    Light
+                </label>
+
+                <label class="radio-option">
+                    <input type="radio" name="material" value="dark">
+                    Dark
+                </label>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="results-label">Here are your suggested screens</div>
+            <textarea name="results">
+65 LPI
+Base = 160
+PMS 234 C = 200
+PMS 4232 C = 260
+            </textarea>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
